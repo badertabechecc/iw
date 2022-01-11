@@ -1,0 +1,6 @@
+.products__layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  place-content: center;
+}

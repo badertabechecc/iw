@@ -1,0 +1,27 @@
+nav {
+  display: flex;
+  height: 40px;
+  background-color: darkslategray;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 1rem;
+  padding: 0.5rem 2rem;
+  box-sizing: border-box;
+  border-radius: 6px;
+  color: white;
+  justify-content: space-between;
+}
+
+.text {
+  color: inherit;
+  text-decoration: inherit;
+}
+.text:hover {
+  text-decoration: underline;
+}
+
+.num__items {
+  width: 20px;
+  height: 20px;
+  background-color: black;
+}
