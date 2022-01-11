@@ -1,16 +1,30 @@
 import { actionsTypes } from './actionTypes';
+import produce from 'immer';
 
-const initialState = [];
+const initialState = {};
 
 const productsReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case actionsTypes.add:
-      return [...state, action.payload.item];
-    case actionsTypes.remove:
-      return state.filter((item) => item.Id !== action.payload.id);
-    default:
-      return state;
-  }
-};
+  return produce(state, (draft) => {
+    switch (action.type) {
+      case actionsTypes.add:
+        draft[action.payload.item.Id] = {
+          item: action.payload.item,
+          quantity: 1,
+        };
+        break;
 
+      case actionsTypes.remove:
+        delete draft[action.payload.id];
+        break;
+
+      case actionsTypes.update:
+        draft[action.payload.id].quantity = action.payload.quantity;
+        break;
+      case actionsTypes.clear:
+        return {};
+      default:
+        return state;
+    }
+  });
+};
 export default productsReducer;

@@ -1,14 +1,19 @@
 import { actionsTypes } from './actionTypes';
+import produce from 'immer';
 
 const initialState = [];
 
 const ordersReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case actionsTypes.add:
-      return [...state, action.payload.order];
-    default:
-      return state;
-  }
+  return produce(state, (draft) => {
+    switch (action.type) {
+      case actionsTypes.add:
+        draft.push(action.payload.orders);
+        break;
+
+      default:
+        return state;
+    }
+  });
 };
 
 export default ordersReducer;

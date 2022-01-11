@@ -1,6 +1,6 @@
 import { actionsTypes } from './actionTypes';
 
-export const addOrderAction = ({ order }) => ({
+export const addOrderAction = ({ orders }) => ({
   type: actionsTypes.add,
-  payload: { order },
+  payload: { orders },
 });

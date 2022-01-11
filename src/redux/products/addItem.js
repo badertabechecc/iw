@@ -1,5 +1,4 @@
 export const addItem = (items, item) => {
-  debugger;
   if (items[item.Id]) {
     items[item.Id].quantity++;
   } else {

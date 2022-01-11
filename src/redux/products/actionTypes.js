@@ -4,4 +4,5 @@ export const actionsTypes = {
   clear: '[CLEAR] ITEMS',
   startAdd: '[START] ADD_ITEM',
   startRemove: '[START] REMOVE_ITEM',
+  update: '[UPDATE] ITEM',
 };

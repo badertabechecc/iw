@@ -23,3 +23,8 @@ export const startRemoveItemAction = ({ id }) => ({
   type: actionsTypes.startRemove,
   payload: { id },
 });
+
+export const updateItemAction = ({ id, quantity }) => ({
+  type: actionsTypes.update,
+  payload: { id, quantity },
+});

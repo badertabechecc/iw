@@ -11,24 +11,27 @@ const Cart = (props) => {
   };
 
   const getTotalPrice = () => {
-    return props.state.reduce((acc, item) => {
-      return acc + item.Price;
+    return Object.values(props.state).reduce((acc, item) => {
+      const price = item.item.Price;
+      const quantity = item.quantity;
+      return acc + price * quantity;
     }, 0);
   };
 
-  if (props.state.length === 0) {
+  if (Object.keys(props.state).length === 0) {
     return <div className='cart__footer'>No hay productos en el carrito</div>;
   }
   return (
     <div className='a'>
       <div className='cart__items'>
-        {props.state.map((item, index) => {
+        {Object.values(props.state).map((item, index) => {
           return (
             <div className='cart__item' key={index}>
-              <img src={item.ImageUrl} alt='' />
-              <p>{item.Title}</p>
-              <h4>{item.Price}€</h4>
-              <button onClick={() => handleRemoveItem(item.Id)}>X</button>
+              <img src={item.item.ImageUrl} alt='' />
+              <p>{item.item.Title}</p>
+              <p>x{item.quantity}</p>
+              <h4>{item.item.Price}€</h4>
+              <button onClick={() => handleRemoveItem(item.item.Id)}>X</button>
             </div>
           );
         })}

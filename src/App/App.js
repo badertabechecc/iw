@@ -3,7 +3,7 @@ import Products from './Products';
 import Cart from './Cart';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Orders from './Orders/Orders';
+import Orders from './Orders';
 
 function App() {
   return (

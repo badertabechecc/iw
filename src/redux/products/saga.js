@@ -1,16 +1,22 @@
 import { all, call, put, takeLatest, select } from 'redux-saga/effects';
-import { addItemAction, removeItemAction } from './actions';
+import { addItemAction, removeItemAction, updateItemAction } from './actions';
 import { actionsTypes } from './actionTypes';
-import { addItem } from './addItem';
 import { removeItem } from './removeItem';
 
 export const getItems = (state) => state.products;
 
-export function* addItemSaga({ payload }) {
+export function* addToCartSaga({ payload }) {
   try {
-    const items = yield select(getItems);
-    const itemsUpdated = yield call(addItem, items, payload.item);
-    yield put(addItemAction({ items: itemsUpdated }));
+    const { Id: itemId } = payload.item;
+    const selectedItems = yield select(getItems);
+    const selectedItem = selectedItems[itemId];
+
+    if (selectedItem) {
+      const itemQuantity = selectedItem.quantity;
+      yield put(updateItemAction({ id: itemId, quantity: itemQuantity + 1 }));
+    } else {
+      yield put(addItemAction({ item: payload.item }));
+    }
   } catch (error) {
     console.log(error.message);
   }
@@ -18,15 +24,22 @@ export function* addItemSaga({ payload }) {
 
 export function* removeItemSaga({ payload }) {
   try {
-    const items = yield select(getItems);
-    const itemsUpdated = yield call(removeItem, items, payload.id);
-    yield put(removeItemAction({ items: itemsUpdated }));
+    const itemId = payload.id;
+    const selectedItems = yield select(getItems);
+    const selectedItem = selectedItems[itemId];
+    const itemQuantity = selectedItem.quantity;
+
+    if (itemQuantity === 1) {
+      yield put(removeItemAction({ id: itemId }));
+    } else {
+      yield put(updateItemAction({ id: itemId, quantity: itemQuantity - 1 }));
+    }
   } catch (error) {
     console.log(error.message);
   }
 }
 
 export default function* productsSaga() {
-  yield all([takeLatest(actionsTypes.startAdd, addItemSaga)]);
+  yield all([takeLatest(actionsTypes.startAdd, addToCartSaga)]);
   yield all([takeLatest(actionsTypes.startRemove, removeItemSaga)]);
 }

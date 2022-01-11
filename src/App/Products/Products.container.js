@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import { addItemAction } from '../../redux/products/actions';
+import { startAddItemAction } from '../../redux/products/actions';
 import Products from './Products';
 
 const mapDispatchToProps = {
-  addItem: addItemAction,
+  addItem: startAddItemAction,
 };
 
 export default connect(null, mapDispatchToProps)(Products);
