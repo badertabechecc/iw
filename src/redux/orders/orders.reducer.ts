@@ -1,9 +1,13 @@
+import { AnyAction } from 'redux';
 import { actionsTypes } from './orders.actionTypes';
 import produce from 'immer';
+import { IOrders } from './orders.types';
 
-const initialState = [];
+export type IOrdersInitialState = IOrders;
 
-const ordersReducer = (state = initialState, action) => {
+const initialState: IOrdersInitialState = [];
+
+const ordersReducer = (state = initialState, action: AnyAction) => {
   return produce(state, (draft) => {
     switch (action.type) {
       case actionsTypes.add:

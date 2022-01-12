@@ -1,8 +1,13 @@
 import './Products.css';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import productList from '../../productsList';
+import { IAddItemAction } from 'redux/products/products.actions';
 
-const Products = (props) => {
+interface IProps {
+  addItem: IAddItemAction;
+}
+
+const Products = (props: IProps) => {
   return (
     <div className='products__layout'>
       {productList.map((product, index) => {

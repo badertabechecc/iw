@@ -1,13 +1,23 @@
-import { actionsTypes } from './products.actionTypes';
+import { AnyAction } from 'redux';
 import produce from 'immer';
+import { actionsTypes } from './products.actionTypes';
+import { IItem } from './products.types';
 
-const initialState = {};
+export type IProductsInitialState = {
+  [K in string]: {
+    item: IItem;
+    quantity: number;
+  };
+};
 
-const productsReducer = (state = initialState, action) => {
+const initialState: IProductsInitialState = {};
+type Index = string;
+
+const productsReducer = (state = initialState, action: AnyAction) => {
   return produce(state, (draft) => {
     switch (action.type) {
       case actionsTypes.add:
-        draft[action.payload.item.Id] = {
+        draft[action.payload.item.Id as Index] = {
           item: action.payload.item,
           quantity: 1,
         };

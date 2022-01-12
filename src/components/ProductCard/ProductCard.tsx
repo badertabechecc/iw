@@ -1,6 +1,13 @@
 import './ProductCard.css';
+import { Item } from 'redux/products/products.types';
+import { IAddItemAction } from 'redux/products/products.actions';
 
-const ProductCard = (props) => {
+interface IProps {
+  product: Item;
+  addItem: IAddItemAction;
+}
+
+const ProductCard = (props: IProps) => {
   const handleClick = () => {
     props.addItem({ item: props.product });
   };

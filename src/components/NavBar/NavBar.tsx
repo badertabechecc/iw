@@ -1,7 +1,11 @@
 import './NavBar.css';
 import { Link } from 'react-router-dom';
+import { IItems } from 'redux/products/products.types';
 
-const NavBar = (props) => {
+interface IProps {
+  products: IItems | {};
+}
+const NavBar = (props: IProps) => {
   const getNumberOfProducts = () => {
     return Object.values(props.products).reduce((acc, item) => {
       return acc + item.quantity;

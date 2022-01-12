@@ -1,17 +1,33 @@
 import { all, put, takeLatest, select } from 'redux-saga/effects';
+import { IStore } from 'redux/rootReducer';
 import {
   addItemAction,
   removeItemAction,
   updateItemAction,
 } from './products.actions';
 import { actionsTypes } from './products.actionTypes';
+import { IItems, Item } from './products.types';
 
-export const getItems = (state) => state.products;
+interface IAddToCartSaga {
+  type: string;
+  payload: {
+    item: Item;
+  };
+}
 
-export function* addToCartSaga({ payload }) {
+interface IRemoveItemSaga {
+  type: string;
+  payload: {
+    id: string;
+  };
+}
+
+export const getItems = (state: IStore) => state.products;
+
+export function* addToCartSaga({ payload }: IAddToCartSaga) {
   try {
     const { Id: itemId } = payload.item;
-    const selectedItems = yield select(getItems);
+    const selectedItems: IItems = yield select(getItems);
     const selectedItem = selectedItems[itemId];
 
     if (selectedItem) {
@@ -21,14 +37,14 @@ export function* addToCartSaga({ payload }) {
       yield put(addItemAction({ item: payload.item }));
     }
   } catch (error) {
-    console.log(error.message);
+    console.log(error);
   }
 }
 
-export function* removeItemSaga({ payload }) {
+export function* removeItemSaga({ payload }: IRemoveItemSaga) {
   try {
     const itemId = payload.id;
-    const selectedItems = yield select(getItems);
+    const selectedItems: IItems = yield select(getItems);
     const selectedItem = selectedItems[itemId];
     const itemQuantity = selectedItem.quantity;
 
@@ -38,7 +54,7 @@ export function* removeItemSaga({ payload }) {
       yield put(updateItemAction({ id: itemId, quantity: itemQuantity - 1 }));
     }
   } catch (error) {
-    console.log(error.message);
+    console.log(error);
   }
 }
 

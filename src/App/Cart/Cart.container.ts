@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { IStore } from 'redux/rootReducer';
 import { addOrderAction } from '../../redux/orders/orders.actions';
 import {
   clearItemsAction,
@@ -6,7 +7,7 @@ import {
 } from '../../redux/products/products.actions';
 import Cart from './Cart';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: IStore) => ({
   products: state.products,
 });
 

@@ -1,6 +1,10 @@
+import { IOrders } from 'redux/orders/orders.types';
 import './orders.css';
 
-const Orders = (props) => {
+interface IProps {
+  orders: IOrders;
+}
+const Orders = (props: IProps) => {
   if (props.orders.length === 0) {
     return <div style={{ textAlign: 'center' }}>No hay pedidos</div>;
   }

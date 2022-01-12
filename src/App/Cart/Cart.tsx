@@ -1,7 +1,20 @@
+import { IAddOrderAction } from 'redux/orders/orders.actions';
+import {
+  IStartRemoveItemAction,
+  IClearItemsAction,
+} from 'redux/products/products.actions';
+import { IItems } from 'redux/products/products.types';
 import './Cart.css';
 
-const Cart = (props) => {
-  const handleRemoveItem = (id) => {
+interface IProps {
+  products: IItems | {};
+  removeItem: IStartRemoveItemAction;
+  addOrder: IAddOrderAction;
+  clearCart: IClearItemsAction;
+}
+
+const Cart = (props: IProps) => {
+  const handleRemoveItem = (id: string) => {
     props.removeItem({ id });
   };
 
