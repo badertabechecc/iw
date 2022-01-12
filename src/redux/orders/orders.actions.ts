@@ -1,18 +1,16 @@
-import { IItems } from 'redux/products/products.types';
+import { ICartItems } from '@redux/cart/cart.types';
 import { actionsTypes } from './orders.actionTypes';
 
 interface IAddOrderActionPayload {
-  orders: IItems;
+  order: ICartItems;
 }
 
-export type IAddOrderAction = ({ orders }: IAddOrderActionPayload) => {
+export type IAddOrderAction = ({ order }: IAddOrderActionPayload) => {
   type: typeof actionsTypes.add;
-  payload: {
-    orders: typeof orders;
-  };
+  payload: IAddOrderActionPayload;
 };
 
-export const addOrderAction = ({ orders }: IAddOrderActionPayload) => ({
+export const addOrderAction = ({ order }: IAddOrderActionPayload) => ({
   type: actionsTypes.add,
-  payload: { orders },
+  payload: { order },
 });

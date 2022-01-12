@@ -1,13 +1,8 @@
-export type IItems = {
-  [key: string]: IItem;
+export type IProducts = {
+  [key: string]: IProduct;
 };
 
-export interface IItem {
-  item: Item;
-  quantity: number;
-}
-
-export type Item = {
+export interface IProduct {
   Id: string;
   Title: string;
   Category: string;

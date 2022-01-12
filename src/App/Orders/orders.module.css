@@ -1,3 +1,14 @@
+.order {
+  background-color: #f5f7f8;
+  box-shadow: 0 1px 6px rgb(31 31 31 / 12%), 0 1px 4px rgb(31 31 31 / 12%);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+.order__no-items {
+  text-align: center;
+}
+
 .order__items {
   display: flex;
   flex-direction: column;
@@ -18,18 +29,20 @@
   margin-bottom: 1rem;
 }
 
-.order {
-  background-color: #f5f7f8;
-  box-shadow: 0 1px 6px rgb(31 31 31 / 12%), 0 1px 4px rgb(31 31 31 / 12%);
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-}
-
 .quantity__order {
   background-color: #115e59;
   padding: 0.25rem;
   border-radius: 6px;
   color: white;
+}
+
+.price__container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  place-self: end;
+  margin-left: auto;
+  height: 100%;
 }
 
 .total {

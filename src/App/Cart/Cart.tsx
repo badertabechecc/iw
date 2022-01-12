@@ -1,13 +1,15 @@
-import { IAddOrderAction } from "redux/orders/orders.actions";
+import { IAddOrderAction } from '@redux/orders/orders.actions';
 import {
   IStartRemoveItemAction,
-  IClearItemsAction
-} from "redux/products/products.actions";
-import { IItems } from "redux/products/products.types";
-import "./Cart.css";
+  IClearItemsAction,
+} from '@redux/cart/cart.actions';
+import { ICartItems } from '@redux/cart/cart.types';
+import cartStyles from './cart.module.css';
+import { IProducts } from '@redux/products/products.types';
 
 interface IProps {
-  products: IItems | {};
+  products: IProducts;
+  cartItems: ICartItems;
   removeItem: IStartRemoveItemAction;
   addOrder: IAddOrderAction;
   clearCart: IClearItemsAction;
@@ -19,36 +21,45 @@ const Cart = (props: IProps) => {
   };
 
   const handleAddOrder = () => {
-    props.addOrder({ orders: props.products });
+    props.addOrder({ order: props.cartItems });
     props.clearCart();
   };
 
   const getTotalPrice = () => {
-    return Object.values(props.products).reduce((acc, item) => {
-      const price = item.item.Price;
-      const quantity = item.quantity;
+    return Object.values(props.cartItems).reduce((acc, cartItem) => {
+      const price = props.products[cartItem.id].Price;
+      const quantity = cartItem.quantity;
       return acc + price * quantity;
     }, 0);
   };
 
   if (Object.keys(props.products).length === 0) {
-    return <div className="cart__footer">No hay productos en el carrito</div>;
+    return (
+      <div className={cartStyles.cart__footer}>
+        No hay productos en el carrito
+      </div>
+    );
   }
+
+  const isCartItemEmpty = Object.values(props.cartItems).length === 0;
+
   return (
     <div>
-      <div className="cart__items">
-        {Object.values(props.products).map((item, index) => {
+      <div className={cartStyles.cart__items}>
+        {Object.values(props.cartItems).map((cartItem, index) => {
+          const product = props.products[cartItem.id];
+
           return (
-            <div className="cart__item" key={index}>
+            <div className={cartStyles.cart__item} key={index}>
               <div></div>
-              <img src={item.item.ImageUrl} alt="" />
-              <p>{item.item.Title}</p>
-              <div className="price__container">
-                <p className="quantity">x{item.quantity}</p>
-                <h4>{item.item.Price}€</h4>
+              <img src={product.ImageUrl} alt='' />
+              <p>{product.Title}</p>
+              <div className={cartStyles.price__container}>
+                <p className={cartStyles.quantity}>x{cartItem.quantity}</p>
+                <h4>{product.Price}€</h4>
                 <button
-                  className="remove"
-                  onClick={() => handleRemoveItem(item.item.Id)}
+                  className={cartStyles.remove}
+                  onClick={() => handleRemoveItem(product.Id)}
                 >
                   X
                 </button>
@@ -58,9 +69,13 @@ const Cart = (props: IProps) => {
         })}
       </div>
 
-      <div className="cart__footer">
+      <div className={cartStyles.cart__footer}>
         <h2>Total: {getTotalPrice()}€</h2>
-        <button className="btn_buy" onClick={() => handleAddOrder()}>
+        <button
+          className={cartStyles.btn_buy}
+          onClick={handleAddOrder}
+          disabled={isCartItemEmpty}
+        >
           Comprar
         </button>
       </div>

@@ -1,5 +1,5 @@
-export default [
-  {
+export default {
+  "1": {
     Id: "1",
     Title: "Estanterías Modulares Galvanizadas",
     Category: "Herramientas",
@@ -14,7 +14,7 @@ export default [
     OrgPrice: 59,
     Price: 59
   },
-  {
+  "2": {
     Id: "2",
     Title: "Mini motosierra de mano portátil",
     Category: "Jardines y piscinas",
@@ -29,7 +29,7 @@ export default [
     OrgPrice: 74,
     Price: 74
   },
-  {
+  "4": {
     Id: "4",
     Title: "Estufa de gas para terraza 13000W ",
     Category: "Jardines y piscinas",
@@ -44,7 +44,7 @@ export default [
     OrgPrice: 108,
     Price: 108
   },
-  {
+  "5": {
     Id: "5",
     Title: "Cinta de Correr Plegable Eléctrica con Pantalla LCD ",
     Category: "Hogar",
@@ -59,8 +59,7 @@ export default [
     OrgPrice: 189,
     Price: 189
   },
-
-  {
+  "7": {
     Id: "7",
     Title: "Perchero con Zapatero",
     Category: "Hogar",
@@ -75,7 +74,7 @@ export default [
     OrgPrice: 64,
     Price: 64
   },
-  {
+  "8": {
     Id: "8",
     Title: "Baúl 2en1 Banco y Caja de almacenamiento",
     Category: "Hogar",
@@ -90,7 +89,7 @@ export default [
     OrgPrice: 29,
     Price: 29
   },
-  {
+  "9": {
     Id: "9",
     Title: "Set de 2 Estanterias Metalicas Galvanizadas",
     Category: "Herramientas",
@@ -105,7 +104,7 @@ export default [
     OrgPrice: 59,
     Price: 59
   },
-  {
+  "10": {
     Id: "10",
     Title: "Perchero metálico con 3 estantes",
     Category: "Hogar",
@@ -120,7 +119,7 @@ export default [
     OrgPrice: 44,
     Price: 44
   },
-  {
+  "11": {
     Id: "11",
     Title: "Compresor portátil",
     Category: "Herramientas",
@@ -135,7 +134,7 @@ export default [
     OrgPrice: 79,
     Price: 79
   },
-  {
+  "13": {
     Id: "13",
     Title: "Set de mancuernas 30kg",
     Category: "Vestidores",
@@ -150,4 +149,4 @@ export default [
     OrgPrice: 31,
     Price: 31
   }
-];
+};

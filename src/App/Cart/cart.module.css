@@ -44,6 +44,11 @@ img {
   background-color: #134e4a;
 }
 
+.btn_buy:disabled {
+  background-color: #BBBBBB;
+  color: #333333;
+}
+
 .quantity {
   background-color: lightgrey;
   padding: 0.25rem;

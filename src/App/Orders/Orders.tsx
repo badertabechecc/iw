@@ -1,41 +1,53 @@
-import { IOrder, IOrders } from "redux/orders/orders.types";
-import "./orders.css";
+import { IOrder, IOrders } from '@redux/orders/orders.types';
+import { IProducts } from '@redux/products/products.types';
+
+import ordersStyles from './orders.module.css';
 
 interface IProps {
   orders: IOrders;
+  products: IProducts;
 }
 const Orders = (props: IProps) => {
-  const getTotalPrice = (products: IOrder) => {
-    return Object.values(products).reduce((acc, item) => {
-      const price = item.item.Price;
-      const quantity = item.quantity;
+  const getTotalPrice = (order: IOrder) => {
+    return Object.values(order).reduce((acc, orderProduct) => {
+      const price = props.products[orderProduct.id].Price;
+      const quantity = orderProduct.quantity;
       return acc + price * quantity;
     }, 0);
   };
 
   if (props.orders.length === 0) {
-    return <div style={{ textAlign: "center" }}>No hay pedidos</div>;
+    return (
+      <div className={ordersStyles['order__no-items']}>No hay pedidos</div>
+    );
   }
   return (
     <div>
-      <div className="order__items">
+      <div className={ordersStyles.order__items}>
         {props.orders.map((order, index) => {
           return (
-            <div className="order" key={"order" + index}>
+            <div className={ordersStyles.order} key={'order' + index}>
               <h2>Pedido nº{index + 1}</h2>
-              {Object.values(order).map((item, index) => {
+              {Object.values(order).map((orderProduct, index) => {
                 return (
-                  <div className="order__item" key={index}>
-                    <img src={item.item.ImageUrl} alt="" />
-                    <p>{item.item.Title}</p>
-                    <div className="price__container">
-                      <p className="quantity__order">x{item.quantity}</p>
-                      <h4>{item.item.Price}€</h4>
+                  <div className={ordersStyles.order__item} key={index}>
+                    <img
+                      src={props.products[orderProduct.id].ImageUrl}
+                      alt=''
+                    />
+                    <p>{props.products[orderProduct.id].Title}</p>
+                    <div className={ordersStyles.price__container}>
+                      <p className={ordersStyles.quantity__order}>
+                        x{orderProduct.quantity}
+                      </p>
+                      <h4>{props.products[orderProduct.id].Price}€</h4>
                     </div>
                   </div>
                 );
               })}
-              <h3 className="total">Total {getTotalPrice(order)}€</h3>
+              <h3 className={ordersStyles.total}>
+                Total {getTotalPrice(order)}€
+              </h3>
             </div>
           );
         })}

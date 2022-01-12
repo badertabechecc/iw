@@ -1,0 +1,44 @@
+{
+  "products": {
+    "1": {
+      "Id": "1",
+      "Title": "Estanterías Modulares Galvanizadas",
+      "Category": "Herramientas",
+      "SubCategory": "Equipos para organización del taller",
+      "Manufacturer": "Pack",
+      "Contents": "Equipos para organización del taller",
+      "Description": "Desc",
+      "Organic": true,
+      "ImageUrl": "https://cdn.manomano.com/images/images_products/7195930/P/15633022_1.jpg",
+      "OrgPrice": 59,
+      "Price": 59
+    },
+    "2": {
+      "Id": "2",
+      "Title": "Mini motosierra de mano portátil",
+      "Category": "Jardines y piscinas",
+      "SubCategory": "Maquinaria de jardín",
+      "Manufacturer": "Mini",
+      "Contents": "Maquinaria de jardín",
+      "Description": "Desc",
+      "Organic": true,
+      "ImageUrl": "https://cdn.manomano.com/images/images_products/513505/P/36983634_1.jpg",
+      "OrgPrice": 74,
+      "Price": 74
+    }
+  },
+  "cart": {
+    "2": {
+      "id": 2,
+      "quantity": 3
+    }
+  },
+  "orders": [
+    {
+      "2": {
+        "id": 2,
+        "quantity": 3
+      }
+    }
+  ]
+}

@@ -1,33 +1,27 @@
-import "./ProductCard.css";
-import { Item } from "redux/products/products.types";
-import { IAddItemAction } from "redux/products/products.actions";
+import { IProduct } from '@redux/products/products.types';
+
+import productStyles from './productCard.module.css';
 
 interface IProps {
-  product: Item;
-  addItem: IAddItemAction;
+  product: IProduct;
+  addItem: () => void;
 }
 
-const ProductCard = (props: IProps) => {
-  const handleClick = () => {
-    props.addItem({ item: props.product });
-  };
-
-  return (
-    <div className="card">
-      <div className="card__details">
-        <img src={props.product.ImageUrl} alt={props.product.Manufacturer} />
-        <div>
-          <div className="product__title">
-            <h2 className="product__title">{props.product.Title}</h2>
-          </div>
-          <h2 className="product__price">{props.product.Price}€</h2>
+const ProductCard = (props: IProps) => (
+  <div className={productStyles.product__card}>
+    <div className={productStyles.card__details}>
+      <img src={props.product.ImageUrl} alt={props.product.Manufacturer} />
+      <div>
+        <div className={productStyles.card__title}>
+          <h2 className={productStyles.card__title}>{props.product.Title}</h2>
         </div>
+        <h2 className={productStyles.card__price}>{props.product.Price}€</h2>
       </div>
-      <button className="add_btn" onClick={handleClick}>
-        Añadir al carrito
-      </button>
     </div>
-  );
-};
+    <button className={productStyles.card__add_btn} onClick={props.addItem}>
+      Añadir al carrito
+    </button>
+  </div>
+);
 
 export default ProductCard;

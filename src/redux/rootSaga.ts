@@ -1,6 +1,6 @@
 import { all, spawn } from 'redux-saga/effects';
-import productsSaga from './products/products.saga';
+import productsSagas from './cart/cart.sagas';
 
 export default function* root() {
-  yield all([spawn(productsSaga)]);
+  yield all([spawn(productsSagas)]);
 }

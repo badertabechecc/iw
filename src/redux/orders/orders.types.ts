@@ -1,7 +1,5 @@
-import { IItem } from 'redux/products/products.types';
+import { ICartItems } from '@redux/cart/cart.types';
 
 export type IOrders = IOrder[];
 
-export interface IOrder {
-  [key: string]: IItem;
-}
+export type IOrder = ICartItems;

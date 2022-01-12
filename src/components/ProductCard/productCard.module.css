@@ -1,4 +1,10 @@
-.card {
+img {
+  max-width: 125px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.product__card {
   width: 200px;
   height: fit-content;
   padding: 0.5rem;
@@ -18,13 +24,7 @@
   text-align: center;
 }
 
-img {
-  max-width: 125px;
-  height: auto;
-  border-radius: 8px;
-}
-
-.add_btn {
+.card__add_btn {
   place-self: center;
   background-color: #115e59;
   color: white;
@@ -33,17 +33,17 @@ img {
   font-family: "Montserrat", sans-serif;
 }
 
-.add_btn:hover {
+.card__add_btn:hover {
   background-color: #134e4a;
 }
 
-.product__title {
+.card__title {
   font-size: 14px;
   height: 54px;
   display: flex;
   align-items: center;
 }
 
-.product__price {
+.card__price {
   margin: 0.5rem;
 }
