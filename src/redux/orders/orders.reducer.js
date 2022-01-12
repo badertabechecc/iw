@@ -1,4 +1,4 @@
-import { actionsTypes } from './actionTypes';
+import { actionsTypes } from './orders.actionTypes';
 import produce from 'immer';
 
 const initialState = [];

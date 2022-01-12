@@ -1,7 +1,10 @@
-import { all, call, put, takeLatest, select } from 'redux-saga/effects';
-import { addItemAction, removeItemAction, updateItemAction } from './actions';
-import { actionsTypes } from './actionTypes';
-import { removeItem } from './removeItem';
+import { all, put, takeLatest, select } from 'redux-saga/effects';
+import {
+  addItemAction,
+  removeItemAction,
+  updateItemAction,
+} from './products.actions';
+import { actionsTypes } from './products.actionTypes';
 
 export const getItems = (state) => state.products;
 

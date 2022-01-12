@@ -6,25 +6,25 @@ const Cart = (props) => {
   };
 
   const handleAddOrder = () => {
-    props.addOrder({ orders: props.state });
+    props.addOrder({ orders: props.products });
     props.clearCart();
   };
 
   const getTotalPrice = () => {
-    return Object.values(props.state).reduce((acc, item) => {
+    return Object.values(props.products).reduce((acc, item) => {
       const price = item.item.Price;
       const quantity = item.quantity;
       return acc + price * quantity;
     }, 0);
   };
 
-  if (Object.keys(props.state).length === 0) {
+  if (Object.keys(props.products).length === 0) {
     return <div className='cart__footer'>No hay productos en el carrito</div>;
   }
   return (
-    <div className='a'>
+    <div>
       <div className='cart__items'>
-        {Object.values(props.state).map((item, index) => {
+        {Object.values(props.products).map((item, index) => {
           return (
             <div className='cart__item' key={index}>
               <img src={item.item.ImageUrl} alt='' />
@@ -39,7 +39,7 @@ const Cart = (props) => {
 
       <div className='cart__footer'>
         <h2>Total: {getTotalPrice()}€</h2>
-        <button onClick={() => handleAddOrder()}>Confirmar Pedido</button>
+        <button onClick={() => handleAddOrder()}>Comprar</button>
       </div>
     </div>
   );

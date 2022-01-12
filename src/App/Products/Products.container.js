@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { startAddItemAction } from '../../redux/products/actions';
+import { startAddItemAction } from '../../redux/products/products.actions';
 import Products from './Products';
 
 const mapDispatchToProps = {

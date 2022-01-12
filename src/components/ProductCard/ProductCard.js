@@ -14,7 +14,7 @@ const ProductCard = (props) => {
           <h2>{props.product.Price}€</h2>
         </div>
       </div>
-      <button onClick={handleClick}>Add to cart</button>
+      <button onClick={handleClick}>Añadir al carrito</button>
     </div>
   );
 };

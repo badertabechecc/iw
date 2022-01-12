@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
-import { addOrderAction } from '../../redux/orders/actions';
+import { addOrderAction } from '../../redux/orders/orders.actions';
 import {
   clearItemsAction,
   startRemoveItemAction,
-} from '../../redux/products/actions';
+} from '../../redux/products/products.actions';
 import Cart from './Cart';
 
 const mapStateToProps = (state) => ({
-  state: state.products,
+  products: state.products,
 });
 
 const mapDispatchToProps = {
