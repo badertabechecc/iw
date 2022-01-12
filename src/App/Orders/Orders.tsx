@@ -28,8 +28,10 @@ const Orders = (props: IProps) => {
                   <div className="order__item" key={index}>
                     <img src={item.item.ImageUrl} alt="" />
                     <p>{item.item.Title}</p>
-                    <p className="quantity__order">x{item.quantity}</p>
-                    <h4>{item.item.Price}€</h4>
+                    <div className="price__container">
+                      <p className="quantity__order">x{item.quantity}</p>
+                      <h4>{item.item.Price}€</h4>
+                    </div>
                   </div>
                 );
               })}

@@ -13,9 +13,8 @@
   padding: 0.5rem 1rem;
   display: flex;
   border-radius: 6px;
-  gap: 0.5rem;
+  gap: 1rem;
   align-items: center;
-  justify-content: space-between;
   margin-bottom: 1rem;
 }
 
