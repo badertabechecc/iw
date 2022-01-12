@@ -30,8 +30,23 @@ nav {
   padding: 0.25rem 0.5rem;
   margin-left: 1rem;
   background-color: white;
+  position: relative;
 }
 
 .link-btn:hover {
   background-color: #e5e7eb;
+}
+
+.number__produts {
+  background-color: black;
+  width: 20px;
+  height: 20px;
+  color: white;
+  border-radius: 999px;
+  position: absolute;
+  font-weight: bold;
+  display: grid;
+  place-content: center;
+  left: 20px;
+  top: 10px;
 }

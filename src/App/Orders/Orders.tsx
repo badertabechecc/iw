@@ -21,7 +21,7 @@ const Orders = (props: IProps) => {
       <div className="order__items">
         {props.orders.map((order, index) => {
           return (
-            <div className="order">
+            <div className="order" key={"order" + index}>
               <h2>Pedido nº{index + 1}</h2>
               {Object.values(order).map((item, index) => {
                 return (

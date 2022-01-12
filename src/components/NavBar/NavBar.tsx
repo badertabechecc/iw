@@ -1,6 +1,7 @@
 import "./NavBar.css";
 import { Link } from "react-router-dom";
 import { IItems } from "redux/products/products.types";
+import { BsFillCartFill } from "react-icons/bs";
 
 interface IProps {
   products: IItems | {};
@@ -24,7 +25,10 @@ const NavBar = (props: IProps) => {
 
         <Link to="/cart">
           <button className="link-btn">
-            {getNumberOfProducts()} productos
+            {getNumberOfProducts() === 0 ? null : (
+              <span className="number__produts">{getNumberOfProducts()}</span>
+            )}
+            <BsFillCartFill />
           </button>
         </Link>
       </div>
