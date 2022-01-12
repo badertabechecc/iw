@@ -7,7 +7,7 @@
 }
 
 .order__item {
-  background-color: lightslategray;
+  background-color: #d4d4d8;
   height: 100px;
   box-sizing: border-box;
   padding: 0.5rem 1rem;
@@ -20,7 +20,20 @@
 }
 
 .order {
-  background-color: lightgray;
+  background-color: #f5f7f8;
+  box-shadow: 0 1px 6px rgb(31 31 31 / 12%), 0 1px 4px rgb(31 31 31 / 12%);
   padding: 0.5rem 1rem;
   border-radius: 6px;
+}
+
+.quantity__order {
+  background-color: #115e59;
+  padding: 0.25rem;
+  border-radius: 6px;
+  color: white;
+}
+
+.total {
+  text-align: end;
+  margin-right: 0.5rem;
 }

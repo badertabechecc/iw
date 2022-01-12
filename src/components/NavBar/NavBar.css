@@ -1,15 +1,15 @@
 nav {
   display: flex;
   height: 40px;
-  background-color: darkslategray;
-  width: 90%;
-  margin: auto;
-  margin-bottom: 1rem;
+  background-color: #115e59;
+  width: 70%;
+  margin: 1rem auto;
   padding: 0.5rem 2rem;
   box-sizing: border-box;
   border-radius: 6px;
   color: white;
   justify-content: space-between;
+  font-family: "Montserrat", sans-serif;
 }
 
 .text {
@@ -24,4 +24,14 @@ nav {
   width: 20px;
   height: 20px;
   background-color: black;
+}
+
+.link-btn {
+  padding: 0.25rem 0.5rem;
+  margin-left: 1rem;
+  background-color: white;
+}
+
+.link-btn:hover {
+  background-color: #e5e7eb;
 }

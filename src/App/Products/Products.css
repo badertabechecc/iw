@@ -1,6 +1,9 @@
 .products__layout {
   display: flex;
   flex-wrap: wrap;
-  gap: 1em;
+  gap: 2em;
   place-content: center;
+  font-family: "Montserrat", sans-serif;
+  width: 70%;
+  margin: auto;
 }

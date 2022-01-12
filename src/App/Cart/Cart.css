@@ -1,13 +1,13 @@
 .cart__item {
-  background-color: lightgray;
   height: 100px;
   box-sizing: border-box;
   padding: 0.5rem 1rem;
   display: flex;
   border-radius: 6px;
-  gap: 0.5rem;
+  gap: 1rem;
   align-items: center;
-  justify-content: space-between;
+  background-color: #f5f7f8;
+  box-shadow: 0 1px 6px rgb(31 31 31 / 12%), 0 1px 4px rgb(31 31 31 / 12%);
 }
 
 img {
@@ -25,4 +25,48 @@ img {
 .cart__footer {
   width: fit-content;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.btn_buy {
+  place-self: center;
+  background-color: #115e59;
+  color: white;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  font-family: "Montserrat", sans-serif;
+  place-self: center;
+}
+
+.btn_buy:hover {
+  background-color: #134e4a;
+}
+
+.quantity {
+  background-color: lightgrey;
+  padding: 0.25rem;
+  border-radius: 6px;
+}
+
+.remove {
+  background-color: #f87171;
+  color: white;
+  font-weight: bold;
+  padding: 0.25rem 0.5rem;
+  height: fit-content;
+}
+
+.remove:hover {
+  background-color: #ef4444;
+}
+
+.price__container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  place-self: end;
+  margin-left: auto;
+  height: 100%;
 }

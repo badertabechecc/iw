@@ -1,6 +1,6 @@
-import './NavBar.css';
-import { Link } from 'react-router-dom';
-import { IItems } from 'redux/products/products.types';
+import "./NavBar.css";
+import { Link } from "react-router-dom";
+import { IItems } from "redux/products/products.types";
 
 interface IProps {
   products: IItems | {};
@@ -13,17 +13,21 @@ const NavBar = (props: IProps) => {
   };
   return (
     <nav>
-      <Link className='text' to='/'>
+      <Link className="text" to="/">
         E-commerce
       </Link>
 
-      <Link to='/orders'>
-        <button>Mis pedidos</button>
-      </Link>
+      <div>
+        <Link to="/orders">
+          <button className="link-btn">Mis pedidos</button>
+        </Link>
 
-      <Link to='/cart'>
-        <button>{getNumberOfProducts()} productos</button>
-      </Link>
+        <Link to="/cart">
+          <button className="link-btn">
+            {getNumberOfProducts()} productos
+          </button>
+        </Link>
+      </div>
     </nav>
   );
 };

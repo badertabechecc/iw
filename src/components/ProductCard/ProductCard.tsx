@@ -1,6 +1,6 @@
-import './ProductCard.css';
-import { Item } from 'redux/products/products.types';
-import { IAddItemAction } from 'redux/products/products.actions';
+import "./ProductCard.css";
+import { Item } from "redux/products/products.types";
+import { IAddItemAction } from "redux/products/products.actions";
 
 interface IProps {
   product: Item;
@@ -13,15 +13,19 @@ const ProductCard = (props: IProps) => {
   };
 
   return (
-    <div className='card'>
-      <div className='card__details'>
+    <div className="card">
+      <div className="card__details">
         <img src={props.product.ImageUrl} alt={props.product.Manufacturer} />
         <div>
-          <h2 className='product__title'>{props.product.Title}</h2>
-          <h2>{props.product.Price}€</h2>
+          <div className="product__title">
+            <h2 className="product__title">{props.product.Title}</h2>
+          </div>
+          <h2 className="product__price">{props.product.Price}€</h2>
         </div>
       </div>
-      <button onClick={handleClick}>Añadir al carrito</button>
+      <button className="add_btn" onClick={handleClick}>
+        Añadir al carrito
+      </button>
     </div>
   );
 };

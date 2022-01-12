@@ -1,28 +1,49 @@
 .card {
-  border: 1px solid black;
-  width: 400px;
+  width: 200px;
   height: fit-content;
   padding: 0.5rem;
   box-sizing: border-box;
   display: grid;
   border-radius: 6px;
+  background-color: #f5f7f8;
+  box-shadow: 0 1px 6px rgb(31 31 31 / 12%), 0 1px 4px rgb(31 31 31 / 12%);
 }
 
 .card__details {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
+  align-items: center;
+  text-align: center;
 }
 
 img {
-  max-width: 100%;
+  max-width: 125px;
+  height: auto;
+  border-radius: 8px;
 }
 
-button {
+.add_btn {
   place-self: center;
+  background-color: #115e59;
+  color: white;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.add_btn:hover {
+  background-color: #134e4a;
 }
 
 .product__title {
-  font-size: 16px;
+  font-size: 14px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+}
+
+.product__price {
+  margin: 0.5rem;
 }
