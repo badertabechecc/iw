@@ -36,17 +36,12 @@ img {
   color: white;
   padding: 0.5rem 1rem;
   margin-bottom: 0.5rem;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   place-self: center;
 }
 
 .btn_buy:hover {
   background-color: #134e4a;
-}
-
-.btn_buy:disabled {
-  background-color: #BBBBBB;
-  color: #333333;
 }
 
 .quantity {

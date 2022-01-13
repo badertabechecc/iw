@@ -2,6 +2,15 @@ import { ICartItem } from 'src/redux/cart/cart.types';
 
 import { actionsTypes } from './cart.actionTypes';
 
+export type IClearItemsAction = () => {
+  type: typeof actionsTypes.clear;
+};
+export const clearItemsAction = () => ({
+  type: actionsTypes.clear,
+});
+
+// ---------------------------------------------------------------
+
 //PAYLOAD TYPES
 interface IAddItemActionPayload {
   id: string;
@@ -32,10 +41,6 @@ export type IStartRemoveItemAction = ({
   };
 };
 
-export type IClearItemsAction = () => {
-  type: typeof actionsTypes.clear;
-};
-
 //ACTIONS
 export const addItemAction = ({ id }: IAddItemActionPayload) => ({
   type: actionsTypes.add,
@@ -45,10 +50,6 @@ export const addItemAction = ({ id }: IAddItemActionPayload) => ({
 export const removeItemAction = ({ id }: IRemoveItemActionPayload) => ({
   type: actionsTypes.remove,
   payload: { id },
-});
-
-export const clearItemsAction = () => ({
-  type: actionsTypes.clear,
 });
 
 export const startAddItemAction = ({ id }: IStartAddItemAction) => ({

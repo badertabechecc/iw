@@ -1,8 +1,4 @@
-import { IAddOrderAction } from 'src/redux/orders/orders.actions';
-import {
-  IStartRemoveItemAction,
-  IClearItemsAction,
-} from 'src/redux/cart/cart.actions';
+import { IStartRemoveItemAction } from 'src/redux/cart/cart.actions';
 import { ICartItems } from 'src/redux/cart/cart.types';
 import cartStyles from './cart.module.css';
 import { IProducts } from 'src/redux/products/products.types';
@@ -11,8 +7,6 @@ interface IProps {
   products: IProducts;
   cartItems: ICartItems;
   removeItem: IStartRemoveItemAction;
-  addOrder: IAddOrderAction;
-  clearCart: IClearItemsAction;
 }
 
 const Cart = (props: IProps) => {
@@ -20,10 +14,7 @@ const Cart = (props: IProps) => {
     props.removeItem({ id });
   };
 
-  const handleAddOrder = () => {
-    props.addOrder({ order: props.cartItems });
-    props.clearCart();
-  };
+  const handleAddOrder = () => {};
 
   const getTotalPrice = () => {
     return Object.values(props.cartItems).reduce((acc, cartItem) => {
@@ -33,15 +24,13 @@ const Cart = (props: IProps) => {
     }, 0);
   };
 
-  if (Object.keys(props.products).length === 0) {
+  const isCartEmpty = Object.values(props.cartItems).length === 0;
+  if (isCartEmpty)
     return (
       <div className={cartStyles.cart__footer}>
         No hay productos en el carrito
       </div>
     );
-  }
-
-  const isCartItemEmpty = Object.values(props.cartItems).length === 0;
 
   return (
     <div>
@@ -71,11 +60,7 @@ const Cart = (props: IProps) => {
 
       <div className={cartStyles.cart__footer}>
         <h2>Total: {getTotalPrice()}€</h2>
-        <button
-          className={cartStyles.btn_buy}
-          onClick={handleAddOrder}
-          disabled={isCartItemEmpty}
-        >
+        <button className={cartStyles.btn_buy} onClick={handleAddOrder}>
           Comprar
         </button>
       </div>
