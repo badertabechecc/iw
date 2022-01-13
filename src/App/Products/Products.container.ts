@@ -1,15 +1,14 @@
 import { connect } from 'react-redux';
 
-import { IStore } from '@redux/rootReducer';
+import { IStore } from 'src/redux/rootReducer';
 
-// TODO: Replace relative path with absolute path
-import { startAddItemAction } from '../../redux/cart/cart.actions';
-import { getProducts } from '../../redux/products/products.selectors';
+import { startAddItemAction } from 'src/redux/cart/cart.actions';
+import { getProducts } from 'src/redux/products/products.selectors';
 
 import Products from './Products';
 
 const mapStateToProps = (state: IStore) => ({
-  products: getProducts(state)
+  products: getProducts(state),
 });
 
 const mapDispatchToProps = {

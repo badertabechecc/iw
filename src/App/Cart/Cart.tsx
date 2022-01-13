@@ -1,11 +1,11 @@
-import { IAddOrderAction } from '@redux/orders/orders.actions';
+import { IAddOrderAction } from 'src/redux/orders/orders.actions';
 import {
   IStartRemoveItemAction,
   IClearItemsAction,
-} from '@redux/cart/cart.actions';
-import { ICartItems } from '@redux/cart/cart.types';
+} from 'src/redux/cart/cart.actions';
+import { ICartItems } from 'src/redux/cart/cart.types';
 import cartStyles from './cart.module.css';
-import { IProducts } from '@redux/products/products.types';
+import { IProducts } from 'src/redux/products/products.types';
 
 interface IProps {
   products: IProducts;

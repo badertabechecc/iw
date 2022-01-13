@@ -1,10 +1,9 @@
 import { connect } from 'react-redux';
 
-import { IStore } from '@redux/rootReducer';
+import { IStore } from 'src/redux/rootReducer';
 
-// TODO: Replace relative path with absolute path
-import { getOrders } from '../../redux/orders/orders.selectors';
-import { getProducts } from '../../redux/products/products.selectors';
+import { getOrders } from 'src/redux/orders/orders.selectors';
+import { getProducts } from 'src/redux/products/products.selectors';
 
 import Orders from './Orders';
 

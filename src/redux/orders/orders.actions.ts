@@ -1,4 +1,4 @@
-import { ICartItems } from '@redux/cart/cart.types';
+import { ICartItems } from 'src/redux/cart/cart.types';
 import { actionsTypes } from './orders.actionTypes';
 
 interface IAddOrderActionPayload {

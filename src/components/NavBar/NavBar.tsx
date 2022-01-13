@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ICartItems } from '@redux/cart/cart.types';
+import { ICartItems } from 'src/redux/cart/cart.types';
 import { BsFillCartFill } from 'react-icons/bs';
 
 import navBarStyles from './navBar.module.css';

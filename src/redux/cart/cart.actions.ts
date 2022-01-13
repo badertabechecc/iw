@@ -1,4 +1,4 @@
-import { ICartItem } from '@redux/cart/cart.types';
+import { ICartItem } from 'src/redux/cart/cart.types';
 
 import { actionsTypes } from './cart.actionTypes';
 
@@ -63,10 +63,7 @@ export const startRemoveItemAction = ({
   payload: { id },
 });
 
-export const updateItemAction = ({
-  id,
-  quantity,
-}: ICartItem) => ({
+export const updateItemAction = ({ id, quantity }: ICartItem) => ({
   type: actionsTypes.update,
   payload: { id, quantity },
 });

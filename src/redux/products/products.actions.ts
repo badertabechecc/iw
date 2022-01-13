@@ -1,4 +1,4 @@
-import { IProducts } from '@redux/products/products.types';
+import { IProducts } from 'src/redux/products/products.types';
 import { actionsTypes } from './products.actionTypes';
 
 //ACTION TYPES

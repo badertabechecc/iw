@@ -1,15 +1,14 @@
 import { connect } from 'react-redux';
 
-import { IStore } from '@redux/rootReducer';
+import { IStore } from 'src/redux/rootReducer';
 
-// TODO: Replace relative path with absolute path
 import {
   clearItemsAction,
   startRemoveItemAction,
-} from '../../redux/cart/cart.actions';
-import { getProducts } from '../../redux/products/products.selectors';
-import { getCartItems } from '../../redux/cart/cart.selectors';
-import { addOrderAction } from '../../redux/orders/orders.actions';
+} from 'src/redux/cart/cart.actions';
+import { getProducts } from 'src/redux/products/products.selectors';
+import { getCartItems } from 'src/redux/cart/cart.selectors';
+import { addOrderAction } from 'src/redux/orders/orders.actions';
 
 import Cart from './Cart';
 

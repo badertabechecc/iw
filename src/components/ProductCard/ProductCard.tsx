@@ -1,4 +1,4 @@
-import { IProduct } from '@redux/products/products.types';
+import { IProduct } from 'src/redux/products/products.types';
 
 import productStyles from './productCard.module.css';
 

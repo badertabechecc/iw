@@ -1,5 +1,5 @@
-import { IOrder, IOrders } from '@redux/orders/orders.types';
-import { IProducts } from '@redux/products/products.types';
+import { IOrder, IOrders } from 'src/redux/orders/orders.types';
+import { IProducts } from 'src/redux/products/products.types';
 
 import ordersStyles from './orders.module.css';
 

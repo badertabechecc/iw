@@ -1,8 +1,7 @@
-import { IAddItemAction } from '@redux/cart/cart.actions';
-import { IProducts } from '@redux/products/products.types';
+import { IAddItemAction } from 'src/redux/cart/cart.actions';
+import { IProducts } from 'src/redux/products/products.types';
 
-// TODO: Replace relative path with absolute path
-import ProductCard from '../../components/ProductCard';
+import ProductCard from 'src/components/ProductCard';
 
 import productStyles from './products.module.css';
 

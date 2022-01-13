@@ -1,4 +1,4 @@
-import { ICartItems } from '@redux/cart/cart.types';
+import { ICartItems } from 'src/redux/cart/cart.types';
 
 export type IOrders = IOrder[];
 
