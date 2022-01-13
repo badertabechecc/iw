@@ -5,7 +5,7 @@ import { ICartItems } from './cart.types';
 
 const cartInitialState: ICartItems = {};
 
-const ordersReducer = (state = cartInitialState, action: AnyAction) => {
+const cartReducer = (state = cartInitialState, action: AnyAction) => {
   return produce(state, (draft) => {
     switch (action.type) {
       case actionsTypes.add:
@@ -32,4 +32,4 @@ const ordersReducer = (state = cartInitialState, action: AnyAction) => {
   });
 };
 
-export default ordersReducer;
+export default cartReducer;
