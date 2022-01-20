@@ -1,4 +1,5 @@
-import { IOrder, IOrders } from 'src/redux/orders/orders.types';
+import { ICartItems } from 'src/redux/cart/cart.types';
+import { IOrders } from 'src/redux/orders/orders.types';
 import { IProducts } from 'src/redux/products/products.types';
 
 import ordersStyles from './orders.module.css';
@@ -8,7 +9,7 @@ interface IProps {
   products: IProducts;
 }
 const Orders = (props: IProps) => {
-  const getTotalPrice = (order: IOrder) => {
+  const getTotalPrice = (order: ICartItems) => {
     return Object.values(order).reduce((acc, orderProduct) => {
       const price = props.products[orderProduct.id].Price;
       const quantity = orderProduct.quantity;
