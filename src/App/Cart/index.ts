@@ -1,2 +1,2 @@
-import CartContainer from './Cart.container';
-export default CartContainer;
+import Cart from './Cart';
+export default Cart;

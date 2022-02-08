@@ -1,16 +1,16 @@
 import { Link } from 'react-router-dom';
-import { ICartItems } from 'src/redux/cart/cart.types';
+
 import { BsFillCartFill } from 'react-icons/bs';
 
 import navBarStyles from './navBar.module.css';
+import { selectCart } from 'src/App/Cart/cart.slice';
+import { useSelector } from 'react-redux';
 
-interface IProps {
-  cartItems: ICartItems;
-}
+const NavBar = () => {
+  const cartItems = useSelector(selectCart);
 
-const NavBar = (props: IProps) => {
   const getNumberOfProducts = () => {
-    return Object.values(props.cartItems).reduce((acc, cartItem) => {
+    return Object.values(cartItems).reduce((acc, cartItem) => {
       return acc + cartItem.quantity;
     }, 0);
   };

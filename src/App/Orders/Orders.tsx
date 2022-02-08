@@ -1,23 +1,25 @@
+import { useSelector } from 'react-redux';
 import { ICartItems } from 'src/redux/cart/cart.types';
 import { IOrders } from 'src/redux/orders/orders.types';
 import { IProducts } from 'src/redux/products/products.types';
+import { selectOrders } from 'src/App/Orders/orders.slice';
+import { selectProducts } from 'src/App/Products/products.slice';
 
 import ordersStyles from './orders.module.css';
 
-interface IProps {
-  orders: IOrders;
-  products: IProducts;
-}
-const Orders = (props: IProps) => {
+const Orders = () => {
+  const orders = useSelector(selectOrders);
+  const products = useSelector(selectProducts);
+
   const getTotalPrice = (order: ICartItems) => {
     return Object.values(order).reduce((acc, orderProduct) => {
-      const price = props.products[orderProduct.id].Price;
+      const price = products[orderProduct.id].Price;
       const quantity = orderProduct.quantity;
       return acc + price * quantity;
     }, 0);
   };
 
-  if (props.orders.length === 0) {
+  if (orders.length === 0) {
     return (
       <div className={ordersStyles['order__no-items']}>No hay pedidos</div>
     );
@@ -25,23 +27,20 @@ const Orders = (props: IProps) => {
   return (
     <div>
       <div className={ordersStyles.order__items}>
-        {props.orders.map((order, index) => {
+        {orders.map((order, index) => {
           return (
             <div className={ordersStyles.order} key={'order' + index}>
               <h2>Pedido nº{index + 1}</h2>
               {Object.values(order).map((orderProduct, index) => {
                 return (
                   <div className={ordersStyles.order__item} key={index}>
-                    <img
-                      src={props.products[orderProduct.id].ImageUrl}
-                      alt=''
-                    />
-                    <p>{props.products[orderProduct.id].Title}</p>
+                    <img src={products[orderProduct.id].ImageUrl} alt='' />
+                    <p>{products[orderProduct.id].Title}</p>
                     <div className={ordersStyles.price__container}>
                       <p className={ordersStyles.quantity__order}>
                         x{orderProduct.quantity}
                       </p>
-                      <h4>{props.products[orderProduct.id].Price}€</h4>
+                      <h4>{products[orderProduct.id].Price}€</h4>
                     </div>
                   </div>
                 );

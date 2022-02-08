@@ -6,34 +6,39 @@ import {
 import { ICartItems } from 'src/redux/cart/cart.types';
 import cartStyles from './cart.module.css';
 import { IProducts } from 'src/redux/products/products.types';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  cartSlice,
+  clearCart,
+  removeFromCart,
+  selectCart,
+} from 'src/App/Cart/cart.slice';
+import { selectProducts } from 'src/App/Products/products.slice';
+import { addOrder } from 'src/App/Orders/orders.slice';
 
-interface IProps {
-  products: IProducts;
-  cartItems: ICartItems;
-  removeItem: IStartRemoveItemAction;
-  addOrder: IAddOrderAction;
-  clearCart: IClearItemsAction;
-}
+const Cart = () => {
+  const products = useSelector(selectProducts);
+  const cartItems = useSelector(selectCart);
+  const dispatch = useDispatch();
 
-const Cart = (props: IProps) => {
   const handleRemoveItem = (id: string) => {
-    props.removeItem({ id });
+    dispatch(removeFromCart({ id }));
   };
 
   const handleAddOrder = () => {
-    props.addOrder({ order: props.cartItems });
-    props.clearCart();
+    dispatch(addOrder({ order: cartItems }));
+    dispatch(clearCart());
   };
 
   const getTotalPrice = () => {
-    return Object.values(props.cartItems).reduce((acc, cartItem) => {
-      const price = props.products[cartItem.id].Price;
+    return Object.values(cartItems).reduce((acc, cartItem) => {
+      const price = products[cartItem.id].Price;
       const quantity = cartItem.quantity;
       return acc + price * quantity;
     }, 0);
   };
 
-  const isCartEmpty = Object.values(props.cartItems).length === 0;
+  const isCartEmpty = Object.values(cartItems).length === 0;
   if (isCartEmpty) {
     return (
       <div className={cartStyles.cart__footer}>
@@ -45,8 +50,8 @@ const Cart = (props: IProps) => {
   return (
     <div>
       <div className={cartStyles.cart__items}>
-        {Object.values(props.cartItems).map((cartItem, index) => {
-          const product = props.products[cartItem.id];
+        {Object.values(cartItems).map((cartItem, index) => {
+          const product = products[cartItem.id];
 
           return (
             <div className={cartStyles.cart__item} key={index}>

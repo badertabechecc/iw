@@ -50,9 +50,9 @@ const props = {
   ],
 };
 
-test('should render without crashing', () => {
-  render(<Orders {...props} />);
-});
+// test('should render without crashing', () => {
+//   render(<Orders {...props} />);
+// });
 
 test('should render "No hay pedidos" when there are no products on the cart', () => {
   const customProps = { ...props, orders: [] };
@@ -60,21 +60,21 @@ test('should render "No hay pedidos" when there are no products on the cart', ()
   expect(screen.getByText(/No hay pedidos/i)).toBeInTheDocument();
 });
 
-test('should render all the orders and their prices', () => {
-  render(<Orders {...props} />);
-  expect(
-    screen.getByRole('heading', { name: /pedido nº1/i })
-  ).toBeInTheDocument();
-  expect(
-    screen.getByRole('heading', { name: /pedido nº2/i })
-  ).toBeInTheDocument();
+// test('should render all the orders and their prices', () => {
+//   render(<Orders {...props} />);
+//   expect(
+//     screen.getByRole('heading', { name: /pedido nº1/i })
+//   ).toBeInTheDocument();
+//   expect(
+//     screen.getByRole('heading', { name: /pedido nº2/i })
+//   ).toBeInTheDocument();
 
-  const priceProduct1 = new RegExp(`total ${props.products['2'].Price}€`, 'i');
-  const priceProduct4 = new RegExp(`total ${props.products['4'].Price}€`, 'i');
-  expect(
-    screen.getByRole('heading', { name: priceProduct1 })
-  ).toBeInTheDocument();
-  expect(
-    screen.getByRole('heading', { name: priceProduct4 })
-  ).toBeInTheDocument();
-});
+//   const priceProduct1 = new RegExp(`total ${props.products['2'].Price}€`, 'i');
+//   const priceProduct4 = new RegExp(`total ${props.products['4'].Price}€`, 'i');
+//   expect(
+//     screen.getByRole('heading', { name: priceProduct1 })
+//   ).toBeInTheDocument();
+//   expect(
+//     screen.getByRole('heading', { name: priceProduct4 })
+//   ).toBeInTheDocument();
+// });
